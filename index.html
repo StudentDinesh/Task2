@@ -1,0 +1,724 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Volt — Premium Electronics & Gadgets</title>
+  <link rel="stylesheet" href="style.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link
+    href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600&family=Space+Grotesk:wght@500;600;700;800&display=swap"
+    rel="stylesheet"
+  />
+</head>
+<body>
+
+<!-- ═══════════════════════════════════════════
+     ANNOUNCEMENT BAR
+═══════════════════════════════════════════ -->
+<div class="announce-bar">
+  <p>🚚 Free shipping on orders over ₹999 &nbsp;|&nbsp; 🔒 2-year warranty on all products &nbsp;|&nbsp; ⚡ Same-day dispatch before 3 PM</p>
+</div>
+
+<!-- ═══════════════════════════════════════════
+     HEADER / NAVBAR
+═══════════════════════════════════════════ -->
+<header class="header" id="header">
+  <nav class="navbar">
+
+    <!-- Logo -->
+    <a href="#home" class="logo">
+      <span class="logo-mark">⚡</span>Volt
+    </a>
+
+    <!-- Desktop nav links -->
+    <ul class="nav-links" id="navLinks">
+      <li><a href="#home"     class="nav-link active">Home</a></li>
+      <li><a href="#products" class="nav-link">Products</a></li>
+      <li><a href="#detail"   class="nav-link">Detail</a></li>
+      <li><a href="#features" class="nav-link">Features</a></li>
+      <li><a href="#contact"  class="nav-link">Contact</a></li>
+    </ul>
+
+    <!-- Nav right actions -->
+    <div class="nav-actions">
+      <button class="icon-btn" aria-label="Search" onclick="toggleSearch()">
+        <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
+      </button>
+      <button class="icon-btn" aria-label="Cart" onclick="toggleCart()">
+        <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 0 1-8 0"/></svg>
+        <span class="cart-badge" id="cartBadge">3</span>
+      </button>
+      <!-- Hamburger -->
+      <button class="hamburger" id="hamburger" aria-label="Toggle menu" aria-expanded="false">
+        <span class="bar"></span>
+        <span class="bar"></span>
+        <span class="bar"></span>
+      </button>
+    </div>
+
+  </nav>
+
+  <!-- Search bar (hidden by default) -->
+  <div class="search-bar" id="searchBar">
+    <div class="search-inner">
+      <svg width="18" height="18" fill="none" stroke="#6B7280" stroke-width="2" viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
+      <input type="text" placeholder="Search headphones, laptops, smartwatches…" id="searchInput" />
+      <button onclick="toggleSearch()" class="search-close">✕</button>
+    </div>
+  </div>
+</header>
+
+<!-- Cart drawer -->
+<div class="cart-overlay" id="cartOverlay" onclick="toggleCart()"></div>
+<aside class="cart-drawer" id="cartDrawer">
+  <div class="cart-head">
+    <h3>Your Cart (3)</h3>
+    <button onclick="toggleCart()" class="cart-close">✕</button>
+  </div>
+  <div class="cart-items">
+    <div class="cart-item">
+      <div class="cart-img" style="background:#EFF6FF; font-size:1.5rem; display:flex; align-items:center; justify-content:center;">🎧</div>
+      <div class="cart-info">
+        <p class="cart-name">Volt ANC Pro Headphones</p>
+        <p class="cart-price">₹12,999</p>
+      </div>
+      <button class="cart-remove">✕</button>
+    </div>
+    <div class="cart-item">
+      <div class="cart-img" style="background:#F0FDF4; font-size:1.5rem; display:flex; align-items:center; justify-content:center;">⌚</div>
+      <div class="cart-info">
+        <p class="cart-name">SmartPulse X5 Watch</p>
+        <p class="cart-price">₹8,499</p>
+      </div>
+      <button class="cart-remove">✕</button>
+    </div>
+    <div class="cart-item">
+      <div class="cart-img" style="background:#FFF7ED; font-size:1.5rem; display:flex; align-items:center; justify-content:center;">🔌</div>
+      <div class="cart-info">
+        <p class="cart-name">65W GaN Charger</p>
+        <p class="cart-price">₹2,199</p>
+      </div>
+      <button class="cart-remove">✕</button>
+    </div>
+  </div>
+  <div class="cart-foot">
+    <div class="cart-total">
+      <span>Total</span>
+      <strong>₹23,697</strong>
+    </div>
+    <button class="btn btn-primary btn-full">Checkout →</button>
+    <button class="btn btn-ghost btn-full" onclick="toggleCart()">Continue Shopping</button>
+  </div>
+</aside>
+
+
+<!-- ═══════════════════════════════════════════
+     HERO SECTION
+═══════════════════════════════════════════ -->
+<section class="hero" id="home">
+  <div class="hero-inner">
+    <div class="hero-content">
+      <span class="eyebrow">New Arrival 2026</span>
+      <h1 class="hero-title">Sound that<br/><span class="hero-accent">disappears.</span></h1>
+      <p class="hero-desc">The Volt ANC Pro erases the world so you can focus on what matters. 40-hour battery. 45dB noise cancellation. Zero compromise.</p>
+      <div class="hero-cta">
+        <a href="#detail" class="btn btn-primary">Shop Now — ₹12,999</a>
+        <a href="#products" class="btn btn-outline">Browse All</a>
+      </div>
+      <div class="hero-trust">
+        <div class="trust-item">
+          <span class="trust-num">4.9★</span>
+          <span class="trust-label">2,400+ reviews</span>
+        </div>
+        <div class="trust-sep"></div>
+        <div class="trust-item">
+          <span class="trust-num">40hr</span>
+          <span class="trust-label">Battery life</span>
+        </div>
+        <div class="trust-sep"></div>
+        <div class="trust-item">
+          <span class="trust-num">45dB</span>
+          <span class="trust-label">Noise cancel</span>
+        </div>
+      </div>
+    </div>
+    <div class="hero-visual">
+      <div class="hero-product-card">
+        <div class="hero-product-emoji">🎧</div>
+        <div class="hero-product-glow"></div>
+      </div>
+      <div class="hero-badge-float hero-badge-1">
+        <span>🔋</span> 40hr battery
+      </div>
+      <div class="hero-badge-float hero-badge-2">
+        <span>🔇</span> ANC Pro
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ═══════════════════════════════════════════
+     CATEGORIES STRIP
+═══════════════════════════════════════════ -->
+<section class="categories">
+  <div class="container">
+    <div class="cat-grid">
+      <a href="#products" class="cat-chip active">
+        <span>🎧</span> Headphones
+      </a>
+      <a href="#products" class="cat-chip">
+        <span>💻</span> Laptops
+      </a>
+      <a href="#products" class="cat-chip">
+        <span>⌚</span> Wearables
+      </a>
+      <a href="#products" class="cat-chip">
+        <span>📱</span> Smartphones
+      </a>
+      <a href="#products" class="cat-chip">
+        <span>🔌</span> Accessories
+      </a>
+      <a href="#products" class="cat-chip">
+        <span>📷</span> Cameras
+      </a>
+    </div>
+  </div>
+</section>
+
+
+<!-- ═══════════════════════════════════════════
+     PRODUCTS GRID
+═══════════════════════════════════════════ -->
+<section class="products" id="products">
+  <div class="container">
+    <div class="section-head">
+      <div>
+        <p class="section-eye">Handpicked for you</p>
+        <h2 class="section-title">Bestsellers</h2>
+      </div>
+      <a href="#" class="link-arrow">View all →</a>
+    </div>
+
+    <div class="product-grid">
+
+      <!-- Product 1 -->
+      <article class="product-card" onclick="scrollToDetail()">
+        <div class="product-img-wrap">
+          <span class="product-badge badge-new">New</span>
+          <div class="product-emoji">🎧</div>
+          <button class="wishlist-btn" aria-label="Add to wishlist">♡</button>
+        </div>
+        <div class="product-info">
+          <p class="product-brand">Volt Audio</p>
+          <h3 class="product-name">ANC Pro Headphones</h3>
+          <div class="product-rating">
+            <span class="stars">★★★★★</span>
+            <span class="review-count">(2,418)</span>
+          </div>
+          <div class="product-price-row">
+            <span class="price-current">₹12,999</span>
+            <span class="price-old">₹18,000</span>
+            <span class="price-off">28% off</span>
+          </div>
+          <button class="btn btn-primary btn-sm" onclick="event.stopPropagation(); addToCart()">Add to Cart</button>
+        </div>
+      </article>
+
+      <!-- Product 2 -->
+      <article class="product-card">
+        <div class="product-img-wrap" style="background: linear-gradient(135deg,#F0FDF4,#DCFCE7)">
+          <span class="product-badge badge-sale">Sale</span>
+          <div class="product-emoji">⌚</div>
+          <button class="wishlist-btn" aria-label="Add to wishlist">♡</button>
+        </div>
+        <div class="product-info">
+          <p class="product-brand">PulseTech</p>
+          <h3 class="product-name">SmartPulse X5 Watch</h3>
+          <div class="product-rating">
+            <span class="stars">★★★★☆</span>
+            <span class="review-count">(987)</span>
+          </div>
+          <div class="product-price-row">
+            <span class="price-current">₹8,499</span>
+            <span class="price-old">₹11,000</span>
+            <span class="price-off">23% off</span>
+          </div>
+          <button class="btn btn-primary btn-sm" onclick="addToCart()">Add to Cart</button>
+        </div>
+      </article>
+
+      <!-- Product 3 -->
+      <article class="product-card">
+        <div class="product-img-wrap" style="background: linear-gradient(135deg,#FFF7ED,#FEF3C7)">
+          <div class="product-emoji">💻</div>
+          <button class="wishlist-btn" aria-label="Add to wishlist">♡</button>
+        </div>
+        <div class="product-info">
+          <p class="product-brand">SwiftBook</p>
+          <h3 class="product-name">SwiftBook Air 14</h3>
+          <div class="product-rating">
+            <span class="stars">★★★★★</span>
+            <span class="review-count">(3,201)</span>
+          </div>
+          <div class="product-price-row">
+            <span class="price-current">₹74,999</span>
+            <span class="price-old">₹89,000</span>
+            <span class="price-off">16% off</span>
+          </div>
+          <button class="btn btn-primary btn-sm" onclick="addToCart()">Add to Cart</button>
+        </div>
+      </article>
+
+      <!-- Product 4 -->
+      <article class="product-card">
+        <div class="product-img-wrap" style="background: linear-gradient(135deg,#F5F3FF,#EDE9FE)">
+          <div class="product-emoji">📱</div>
+          <button class="wishlist-btn" aria-label="Add to wishlist">♡</button>
+        </div>
+        <div class="product-info">
+          <p class="product-brand">Nexus</p>
+          <h3 class="product-name">Nexus Edge 15 Pro</h3>
+          <div class="product-rating">
+            <span class="stars">★★★★★</span>
+            <span class="review-count">(5,640)</span>
+          </div>
+          <div class="product-price-row">
+            <span class="price-current">₹62,499</span>
+            <span class="price-old">₹74,000</span>
+            <span class="price-off">16% off</span>
+          </div>
+          <button class="btn btn-primary btn-sm" onclick="addToCart()">Add to Cart</button>
+        </div>
+      </article>
+
+      <!-- Product 5 -->
+      <article class="product-card">
+        <div class="product-img-wrap" style="background: linear-gradient(135deg,#FDF2F8,#FCE7F3)">
+          <div class="product-emoji">🔌</div>
+          <button class="wishlist-btn" aria-label="Add to wishlist">♡</button>
+        </div>
+        <div class="product-info">
+          <p class="product-brand">Volt Power</p>
+          <h3 class="product-name">65W GaN Charger</h3>
+          <div class="product-rating">
+            <span class="stars">★★★★★</span>
+            <span class="review-count">(8,110)</span>
+          </div>
+          <div class="product-price-row">
+            <span class="price-current">₹2,199</span>
+            <span class="price-old">₹3,500</span>
+            <span class="price-off">37% off</span>
+          </div>
+          <button class="btn btn-primary btn-sm" onclick="addToCart()">Add to Cart</button>
+        </div>
+      </article>
+
+      <!-- Product 6 -->
+      <article class="product-card">
+        <div class="product-img-wrap" style="background: linear-gradient(135deg,#ECFEFF,#CFFAFE)">
+          <span class="product-badge badge-hot">Hot</span>
+          <div class="product-emoji">📷</div>
+          <button class="wishlist-btn" aria-label="Add to wishlist">♡</button>
+        </div>
+        <div class="product-info">
+          <p class="product-brand">LensKraft</p>
+          <h3 class="product-name">LensKraft Z90 Camera</h3>
+          <div class="product-rating">
+            <span class="stars">★★★★★</span>
+            <span class="review-count">(1,782)</span>
+          </div>
+          <div class="product-price-row">
+            <span class="price-current">₹49,999</span>
+            <span class="price-old">₹64,000</span>
+            <span class="price-off">22% off</span>
+          </div>
+          <button class="btn btn-primary btn-sm" onclick="addToCart()">Add to Cart</button>
+        </div>
+      </article>
+
+    </div><!-- /product-grid -->
+  </div>
+</section>
+
+
+<!-- ═══════════════════════════════════════════
+     PRODUCT DETAIL PAGE
+═══════════════════════════════════════════ -->
+<section class="detail-section" id="detail">
+  <div class="container">
+    <div class="breadcrumb">
+      <a href="#home">Home</a> <span>/</span>
+      <a href="#products">Headphones</a> <span>/</span>
+      <span>Volt ANC Pro</span>
+    </div>
+
+    <div class="detail-layout">
+
+      <!-- LEFT: Image Gallery -->
+      <div class="detail-gallery">
+        <div class="gallery-main" id="galleryMain">
+          <div class="gallery-emoji" id="galleryEmoji">🎧</div>
+          <span class="gallery-badge">New 2026</span>
+        </div>
+        <div class="gallery-thumbs">
+          <button class="gallery-thumb active" onclick="setThumb(this,'🎧','linear-gradient(135deg,#EFF6FF,#DBEAFE)')">🎧</button>
+          <button class="gallery-thumb" onclick="setThumb(this,'🎧','linear-gradient(135deg,#F5F3FF,#EDE9FE)')">🎧</button>
+          <button class="gallery-thumb" onclick="setThumb(this,'🎧','linear-gradient(135deg,#F0FDF4,#DCFCE7)')">🎧</button>
+          <button class="gallery-thumb" onclick="setThumb(this,'🎧','linear-gradient(135deg,#FFF7ED,#FEF3C7)')">🎧</button>
+        </div>
+      </div>
+
+      <!-- RIGHT: Purchase Panel -->
+      <div class="detail-panel">
+        <div class="detail-panel-sticky">
+
+          <div class="detail-brand">Volt Audio</div>
+          <h1 class="detail-title">ANC Pro Headphones</h1>
+
+          <div class="detail-rating">
+            <span class="stars stars-lg">★★★★★</span>
+            <span class="rating-num">4.9</span>
+            <span class="rating-count">2,418 reviews</span>
+            <span class="in-stock">✓ In Stock</span>
+          </div>
+
+          <div class="detail-price">
+            <span class="detail-price-current">₹12,999</span>
+            <span class="detail-price-old">₹18,000</span>
+            <span class="detail-price-save">Save ₹5,001 (28%)</span>
+          </div>
+
+          <!-- Color Picker -->
+          <div class="detail-option">
+            <p class="option-label">Color: <strong id="colorLabel">Midnight Black</strong></p>
+            <div class="color-swatches">
+              <button class="swatch swatch-black active" data-color="Midnight Black" onclick="pickColor(this)" title="Midnight Black"></button>
+              <button class="swatch swatch-white" data-color="Pearl White" onclick="pickColor(this)" title="Pearl White"></button>
+              <button class="swatch swatch-blue" data-color="Ocean Blue" onclick="pickColor(this)" title="Ocean Blue"></button>
+              <button class="swatch swatch-red" data-color="Rose Red" onclick="pickColor(this)" title="Rose Red"></button>
+            </div>
+          </div>
+
+          <!-- Quantity -->
+          <div class="detail-option">
+            <p class="option-label">Quantity</p>
+            <div class="qty-control">
+              <button class="qty-btn" onclick="changeQty(-1)">−</button>
+              <span class="qty-val" id="qtyVal">1</span>
+              <button class="qty-btn" onclick="changeQty(1)">+</button>
+            </div>
+          </div>
+
+          <!-- CTAs -->
+          <div class="detail-ctas">
+            <button class="btn btn-primary btn-lg btn-full" onclick="addToCart(); showToast()">Add to Cart 🛒</button>
+            <button class="btn btn-dark btn-lg btn-full">Buy Now</button>
+          </div>
+
+          <!-- Perks -->
+          <div class="detail-perks">
+            <div class="perk">
+              <span class="perk-icon">🚚</span>
+              <div>
+                <p class="perk-title">Free Delivery</p>
+                <p class="perk-sub">Order by 3 PM for same-day dispatch</p>
+              </div>
+            </div>
+            <div class="perk">
+              <span class="perk-icon">↩️</span>
+              <div>
+                <p class="perk-title">7-Day Returns</p>
+                <p class="perk-sub">No questions asked</p>
+              </div>
+            </div>
+            <div class="perk">
+              <span class="perk-icon">🛡️</span>
+              <div>
+                <p class="perk-title">2-Year Warranty</p>
+                <p class="perk-sub">Manufacturing defects covered</p>
+              </div>
+            </div>
+          </div>
+
+        </div><!-- /sticky -->
+      </div><!-- /panel -->
+
+    </div><!-- /detail-layout -->
+
+    <!-- SPECS TAB SECTION -->
+    <div class="detail-tabs">
+      <div class="tabs-nav">
+        <button class="tab-btn active" onclick="showTab('overview',this)">Overview</button>
+        <button class="tab-btn" onclick="showTab('specs',this)">Specifications</button>
+        <button class="tab-btn" onclick="showTab('reviews',this)">Reviews (2,418)</button>
+      </div>
+
+      <!-- Overview Tab -->
+      <div class="tab-panel active" id="tab-overview">
+        <div class="overview-grid">
+          <div class="overview-item">
+            <div class="ov-icon">🎵</div>
+            <h4>40mm Drivers</h4>
+            <p>Precision-tuned 40mm neodymium drivers for full-spectrum sound with punchy bass and crystal highs.</p>
+          </div>
+          <div class="overview-item">
+            <div class="ov-icon">🔇</div>
+            <h4>45dB ANC</h4>
+            <p>Industry-leading 45dB active noise cancellation. Block traffic, offices, flights — all of it.</p>
+          </div>
+          <div class="overview-item">
+            <div class="ov-icon">🔋</div>
+            <h4>40-Hour Battery</h4>
+            <p>Up to 40 hours on a single charge. A 10-minute quick charge gives you 3 hours of playback.</p>
+          </div>
+          <div class="overview-item">
+            <div class="ov-icon">🎙️</div>
+            <h4>6-Mic Array</h4>
+            <p>Six-mic beamforming array ensures your voice is always crystal clear on calls, anywhere.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Specs Tab -->
+      <div class="tab-panel" id="tab-specs">
+        <div class="specs-table">
+          <div class="spec-row"><span class="spec-key">Driver Size</span><span class="spec-val">40mm Neodymium</span></div>
+          <div class="spec-row"><span class="spec-key">Frequency Response</span><span class="spec-val">20Hz – 20kHz</span></div>
+          <div class="spec-row"><span class="spec-key">Impedance</span><span class="spec-val">32Ω</span></div>
+          <div class="spec-row"><span class="spec-key">Noise Cancellation</span><span class="spec-val">-45dB ANC</span></div>
+          <div class="spec-row"><span class="spec-key">Battery Life (ANC on)</span><span class="spec-val">40 hours</span></div>
+          <div class="spec-row"><span class="spec-key">Quick Charge</span><span class="spec-val">10 min → 3 hrs</span></div>
+          <div class="spec-row"><span class="spec-key">Connectivity</span><span class="spec-val">Bluetooth 5.3 + 3.5mm Jack</span></div>
+          <div class="spec-row"><span class="spec-key">Microphones</span><span class="spec-val">6-mic beamforming array</span></div>
+          <div class="spec-row"><span class="spec-key">Weight</span><span class="spec-val">248g</span></div>
+          <div class="spec-row"><span class="spec-key">Colors</span><span class="spec-val">Midnight Black, Pearl White, Ocean Blue, Rose Red</span></div>
+          <div class="spec-row"><span class="spec-key">In the Box</span><span class="spec-val">Headphones, USB-C cable, 3.5mm cable, Carry pouch</span></div>
+          <div class="spec-row"><span class="spec-key">Warranty</span><span class="spec-val">2 years (manufacturing defects)</span></div>
+        </div>
+      </div>
+
+      <!-- Reviews Tab -->
+      <div class="tab-panel" id="tab-reviews">
+        <div class="reviews-summary">
+          <div class="rating-big">
+            <p class="rating-score">4.9</p>
+            <p class="rating-stars-big">★★★★★</p>
+            <p class="rating-total">2,418 reviews</p>
+          </div>
+          <div class="rating-bars">
+            <div class="rbar"><span>5★</span><div class="bar-track"><div class="bar-fill" style="width:89%"></div></div><span>89%</span></div>
+            <div class="rbar"><span>4★</span><div class="bar-track"><div class="bar-fill" style="width:7%"></div></div><span>7%</span></div>
+            <div class="rbar"><span>3★</span><div class="bar-track"><div class="bar-fill" style="width:3%"></div></div><span>3%</span></div>
+            <div class="rbar"><span>2★</span><div class="bar-track"><div class="bar-fill" style="width:1%"></div></div><span>1%</span></div>
+            <div class="rbar"><span>1★</span><div class="bar-track"><div class="bar-fill" style="width:0%"></div></div><span>0%</span></div>
+          </div>
+        </div>
+        <div class="review-list">
+          <div class="review-card">
+            <div class="reviewer-row">
+              <div class="reviewer-avatar">AR</div>
+              <div>
+                <p class="reviewer-name">Aryan Rathod</p>
+                <span class="stars">★★★★★</span>
+              </div>
+              <span class="review-date">June 2026</span>
+            </div>
+            <p class="review-text">Honestly the best headphones I've ever used. The ANC is otherworldly — I wore these on a 2-hour flight and forgot I was on a plane. Sound quality is warm and detailed. Build feels premium. Worth every rupee.</p>
+          </div>
+          <div class="review-card">
+            <div class="reviewer-row">
+              <div class="reviewer-avatar">SP</div>
+              <div>
+                <p class="reviewer-name">Sneha Pillai</p>
+                <span class="stars">★★★★★</span>
+              </div>
+              <span class="review-date">May 2026</span>
+            </div>
+            <p class="review-text">40 hours battery is not a marketing claim — I tested it. Call quality is excellent too, my team says I sound like I'm in a studio. Love the Ocean Blue colour.</p>
+          </div>
+          <div class="review-card">
+            <div class="reviewer-row">
+              <div class="reviewer-avatar">MK</div>
+              <div>
+                <p class="reviewer-name">Manish Khatri</p>
+                <span class="stars">★★★★☆</span>
+              </div>
+              <span class="review-date">April 2026</span>
+            </div>
+            <p class="review-text">Great headphones overall. Noise cancellation is top-tier. Knocking one star because the ear cushions get warm on long sessions. Minor complaint for an otherwise incredible product.</p>
+          </div>
+        </div>
+      </div>
+
+    </div><!-- /detail-tabs -->
+  </div>
+</section>
+
+
+<!-- ═══════════════════════════════════════════
+     FEATURES / WHY VOLT
+═══════════════════════════════════════════ -->
+<section class="features-section" id="features">
+  <div class="container">
+    <div class="section-head center-head">
+      <p class="section-eye">Why Volt</p>
+      <h2 class="section-title">Built different.</h2>
+    </div>
+    <div class="features-grid">
+      <div class="feat-card">
+        <div class="feat-icon">⚡</div>
+        <h3>Same-day Dispatch</h3>
+        <p>Order before 3 PM and your gear ships today — guaranteed.</p>
+      </div>
+      <div class="feat-card">
+        <div class="feat-icon">🏆</div>
+        <h3>Only Genuine Products</h3>
+        <p>Every product is sourced directly from manufacturers. No grey-market goods, ever.</p>
+      </div>
+      <div class="feat-card">
+        <div class="feat-icon">🛡️</div>
+        <h3>2-Year Warranty</h3>
+        <p>All products carry a 2-year warranty against manufacturing defects.</p>
+      </div>
+      <div class="feat-card">
+        <div class="feat-icon">💬</div>
+        <h3>Expert Support</h3>
+        <p>Our tech experts are available 9 AM – 9 PM, 7 days a week to help you decide.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ═══════════════════════════════════════════
+     CONTACT
+═══════════════════════════════════════════ -->
+<section class="contact-section" id="contact">
+  <div class="container">
+    <div class="contact-wrap">
+      <div class="contact-info">
+        <p class="section-eye">Get in Touch</p>
+        <h2 class="section-title">We're here to help.</h2>
+        <p class="contact-desc">Questions about a product? Need help with an order? Our team responds within 2 hours on business days.</p>
+        <div class="contact-items">
+          <div class="contact-item">
+            <span>📧</span>
+            <div>
+              <p class="ci-label">Email</p>
+              <p>hello@volt.store</p>
+            </div>
+          </div>
+          <div class="contact-item">
+            <span>📱</span>
+            <div>
+              <p class="ci-label">WhatsApp</p>
+              <p>+91 98765 43210</p>
+            </div>
+          </div>
+          <div class="contact-item">
+            <span>🕘</span>
+            <div>
+              <p class="ci-label">Support hours</p>
+              <p>Mon–Sun, 9 AM – 9 PM</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <form class="contact-form" onsubmit="submitContact(event)">
+        <div class="form-row">
+          <div class="form-field">
+            <label for="cname">Name</label>
+            <input type="text" id="cname" placeholder="Your name" required />
+          </div>
+          <div class="form-field">
+            <label for="cemail">Email</label>
+            <input type="email" id="cemail" placeholder="you@example.com" required />
+          </div>
+        </div>
+        <div class="form-field">
+          <label for="csubject">Subject</label>
+          <input type="text" id="csubject" placeholder="Order #12345 issue" />
+        </div>
+        <div class="form-field">
+          <label for="cmsg">Message</label>
+          <textarea id="cmsg" rows="4" placeholder="How can we help?" required></textarea>
+        </div>
+        <button type="submit" class="btn btn-primary btn-lg btn-full">Send Message →</button>
+        <p class="form-note" id="contactNote"></p>
+      </form>
+    </div>
+  </div>
+</section>
+
+
+<!-- ═══════════════════════════════════════════
+     FOOTER
+═══════════════════════════════════════════ -->
+<footer class="footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <a href="#" class="logo logo-footer">⚡ Volt</a>
+        <p>The gadget store that gets it. Premium electronics, genuine products, fast delivery — all in one place.</p>
+        <div class="footer-socials">
+          <a href="#" class="social-pill">Instagram</a>
+          <a href="#" class="social-pill">YouTube</a>
+          <a href="#" class="social-pill">Twitter</a>
+        </div>
+      </div>
+      <div class="footer-col">
+        <h4>Shop</h4>
+        <ul>
+          <li><a href="#">Headphones</a></li>
+          <li><a href="#">Laptops</a></li>
+          <li><a href="#">Wearables</a></li>
+          <li><a href="#">Smartphones</a></li>
+          <li><a href="#">Accessories</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Support</h4>
+        <ul>
+          <li><a href="#">Track Order</a></li>
+          <li><a href="#">Returns</a></li>
+          <li><a href="#">Warranty</a></li>
+          <li><a href="#">FAQs</a></li>
+          <li><a href="#">Contact Us</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Company</h4>
+        <ul>
+          <li><a href="#">About Volt</a></li>
+          <li><a href="#">Blog</a></li>
+          <li><a href="#">Careers</a></li>
+          <li><a href="#">Privacy Policy</a></li>
+          <li><a href="#">Terms of Service</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>© 2026 Volt Electronics Pvt. Ltd. Made in India 🇮🇳</p>
+      <div class="payment-chips">
+        <span class="pay-chip">UPI</span>
+        <span class="pay-chip">Visa</span>
+        <span class="pay-chip">Mastercard</span>
+        <span class="pay-chip">EMI</span>
+      </div>
+    </div>
+  </div>
+</footer>
+
+
+<!-- ═══════════════════════════════════════════
+     TOAST NOTIFICATION
+═══════════════════════════════════════════ -->
+<div class="toast" id="toast">
+  🛒 Added to cart!
+</div>
+
+<script src="js/main.js"></script>
+</body>
+</html>
